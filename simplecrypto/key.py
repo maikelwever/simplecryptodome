@@ -37,7 +37,7 @@ class Key(object):
 
         self.algorithm_name = algorithm_name
         self.algorithm = '{}-{}'.format(algorithm_name, nbits)
-        self.block_size = int(block_size) 
+        self.block_size = int(block_size)
         self.nbits = nbits
 
     def encrypt_raw(self, message):
@@ -120,7 +120,7 @@ class RsaPublicKey(Key):
             key = _RSA.importKey(key)
         self.rsa = key
 
-        Key.__init__(self, 'RSA', nbits=self.rsa.size())
+        Key.__init__(self, 'RSA', nbits=self.rsa.size_in_bits())
 
         self.oaep = PKCS1_OAEP.new(self.rsa, hashAlgo=SHA256)
         self.pss = PKCS1_PSS.new(self.rsa)
@@ -158,7 +158,7 @@ class RsaKeypair(Key):
         elif type(source) in [str, bytes]:
             self.rsa = _RSA.importKey(source)
 
-        Key.__init__(self, 'RSA', nbits=self.rsa.size())
+        Key.__init__(self, 'RSA', nbits=self.rsa.size_in_bits())
 
         self.oaep = PKCS1_OAEP.new(self.rsa, hashAlgo=SHA256)
         self.pss = PKCS1_PSS.new(self.rsa)

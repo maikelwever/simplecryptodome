@@ -1,19 +1,19 @@
 from setuptools import setup
 
 setup(
-    name='simplecrypto',
+    name='simplecryptodome',
     version=open('CHANGES.txt').read().split()[0],
-    author='Lucas Boppre Niehues',
-    author_email='lucasboppre@gmail.com',
+    author='Maikel Wever',
+    author_email='maikelwever@gmail.com',
     packages=['simplecrypto', 'simplecrypto.tests'],
-    url='https://github.com/boppreh/simplecrypto',
+    url='https://github.com/maikelwever/simplecryptodome',
     license='MIT',
-    description='Simple cryptographic library for hashing and encrypting',
+    description='Fork of simplecrypto, modified to work with pycryptodome',
     keywords = 'simple cryptography symmetric asymmetric hash encrypt decrypt rsa aes sha md5',
     long_description=open('README.rst').read() + '\n\Last Updates\n-------------\n' + open('CHANGES.txt').read(),
 
     install_requires=[
-        'PyCrypto',
+        'pycryptodome',
     ],
 
     classifiers=[
